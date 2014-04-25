@@ -7,7 +7,7 @@ Marche depuis **Minecraft 1.0**
 
 Modifier le **server.properties**:
 
-> *enable-query=true*
+> *enable-query=true*<br>
 > *query.port=25565*
 
 ## License
