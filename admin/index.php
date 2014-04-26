@@ -1,7 +1,27 @@
 <?php
+             //--------------------------------------------------------------------------
+            //                      CONNEXION AU RCON POUR ENVOYER DES COMMANDES AU SERVEUR
+            //--------------------------------------------------------------------------
+            require_once('Rcon.class.php');
+
+            $r = new rcon("127.0.0.1",25567,"ichbinpassword"); // Remplacer l'ip, le port et le mot de passe par les votres
+
+            if(isset($_POST['submit'])){
+
+                    $command = $_POST['command'];
+
+                            if($r->Auth())
+                            {
+                            $r->rconCommand($command);
+                            }
+            }
+
+            //--------------------------------------------------------------------------
+            //              CONNEXION AU QUERY POUR RECEVOIR DES INFORMATIONS DE VOTRE SERVEUR
+            //--------------------------------------------------------------------------
 	// Edit this ->
-	define( 'MQ_SERVER_ADDR', 'localhost' );
-	define( 'MQ_SERVER_PORT', 2000 );
+	define( 'MQ_SERVER_ADDR', '127.0.0.1' );
+	define( 'MQ_SERVER_PORT', 25566 );
 	define( 'MQ_TIMEOUT', 1 );
 	// Edit this <-
 
@@ -132,6 +152,34 @@
 				</table>
 			</div>
 		</div>
+                            <!-- Envoie de commande -->
+                                <table class="table table-bordered table-striped">
+                                        <thead>
+                                        <tr>
+                                        <th>Envoyer une commande</th>
+                                        </tr>
+                                        </thead>
+
+                                        <tbody>
+                                                <tr>
+                                                        <td>
+                                                                <form method="post" role="form">
+                                                                        <div class="input-group">
+                                                                                <input type="text" name="command" class="form-control" placeholder="Entrez votre commande">
+                                                                                <span class="input-group-btn">
+                                                                                <input type="submit" name="submit" class="btn btn-default" value="Envoyer" />
+                                                                                </span>
+                                                                        </div>
+                                                                </form>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+
+                                </table>
+
+                        </div>
+                </div>
 <?php endif; ?>
 	</div>
 </body>
