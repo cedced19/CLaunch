@@ -1,0 +1,158 @@
+#-------------------------------------------------------
+#           Ecrire en couleur sur les panneaux
+#-------------------------------------------------------
+on sign change:
+    replace "$" in line 1 with "§"
+    replace "$" in line 2 with "§"
+    replace "$" in line 3 with "§"
+    replace "$" in line 4 with "§"
+
+#-------------------------------------------------------
+#               S'asseoir sur les escaliers
+#-------------------------------------------------------
+command /chair:
+    trigger:
+        set {_block} to targeted block
+        spawn 1 arrow above {_block}
+        set {chair::%spawned entity%} to true
+        set block above targeted block to wooden stairs
+        while spawned entity exists:
+            teleport spawned entity above {_block}
+            wait 1 tick
+
+on damage:
+    {chair::%victim%} is true
+    cancel event
+
+on right click:
+    clicked block is wooden stairs
+    loop entities in radius 2 around clicked block:
+        {chair::%loop-entity%} is set
+        make player ride loop-entity
+        while loop-entity exists:
+            if player is sneaking:
+                stop
+            teleport player to loop-entity
+            wait 1 tick
+#----------------------------------------------------------------------
+#           Se téléporter à l'endroit que l'on pointe avec une boussole
+#----------------------------------------------------------------------
+
+aliases:
+    # blocks without collision as of Minecraft 1.5 (excluding fire, nether portal & end portal)
+    nonsolid = 0, 6, 27, 28, 30, 31, 32, 37, 38, 39, 40, 50, 55, 59, 63, 64, 65, 66, 68, 69, 70, 71, 72, 75, 76, 77, 78:0, 83, 85:4-7, 104, 105, 106, 111, 115, 131, 132, 141, 142, 143, 147, 148, 157
+
+on rightclick with compass:
+    player has permission "skript.admin"
+    loop blocks above targeted block:
+        loop-block is nonsolid
+        block above loop-block is nonsolid
+        teleport player to loop-block
+        stop trigger
+
+#----------------------------------------------------------------------
+#           TNT LOG
+#----------------------------------------------------------------------
+
+on place of TNT:
+        log "%player% placed TNT in %world% at %location of block%" to "tnt/placement.log"
+
+#----------------------------------------------------------------------
+#           Speed Dimond Boots
+#----------------------------------------------------------------------
+
+on rightclick with diamond boots:
+        apply potion of speed of tier 30 to the player for 1 minute
+
+#----------------------------------------------------------------------
+#           Activer avec une flèche
+#----------------------------------------------------------------------
+
+on projectile hit:
+        projectile is arrow:
+                toggle the block at the arrow
+
+#----------------------------------------------------------------------
+#           Prout
+#----------------------------------------------------------------------
+
+on sneak toggle:
+        create a fake explosion
+
+#----------------------------------------------------------------------
+#           Pluie
+#----------------------------------------------------------------------
+
+on weather change to rain or thunder:
+    cancel event
+
+#----------------------------------------------------------------------
+#           Powa !!
+#----------------------------------------------------------------------
+
+on leftclick with a golden axe:
+        strike lightning at the targeted block
+
+#----------------------------------------------------------------------
+#           Eternal Day
+#----------------------------------------------------------------------
+
+at 18:00:
+    set time to 7:00
+
+
+#----------------------------------------------------------------------
+#           Home
+#----------------------------------------------------------------------
+
+command /sethome:
+    description: Set your home
+    permission: skript.home
+    executable by: players
+    trigger:
+        set {homes.%player%.location} to location of player
+        message "Set your home to <grey>%location of player%<reset>"
+
+command /home:
+    description: Teleport yourself to your home
+    permission: skript.home
+    executable by: players
+    trigger:
+        if {homes.%player%.location} is not set:
+            message "You have not set your home yet!"
+            stop trigger
+        teleport player to {homes.%player%.location}
+
+#----------------------------------------------------------------------
+#           Enderman
+#----------------------------------------------------------------------
+
+on enderman pickup:
+    cancel event
+on enderman place:
+    cancel event
+    kill the enderman # kills endermen which were still carrying something when this trigger file was activated
+
+#----------------------------------------------------------------------
+#           /head
+#----------------------------------------------------------------------
+
+command /head <material>:
+    description: wear a block as helmet/head
+    aliases: hat
+    usage: /head <material>
+    permission: skript.hat
+    trigger:
+        id of argument 1 is greater than 255:
+            message "You cannot wear an item, only blocks"
+            stop trigger
+        player doesn't have argument 1:
+            player doesn't have the permission "skript.hat.free":
+                message "You do not have a %argument 1% you could wear!"
+                stop trigger
+        helmet slot of player is not empty:
+            message "You're already wearing a helmet"
+            stop trigger
+        player doesn't have the permission "skript.hat.free":
+            remove argument 1 from player
+        equip player with argument 1

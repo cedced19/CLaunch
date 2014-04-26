@@ -1,0 +1,16 @@
+# === Skript's variable storage ===
+# Please do not modify this file manually!
+#
+# version: 2.1.2
+
+chair::entity:2b22f466-e032-4082-acc4-dcdfec5cc51d, boolean, 01
+chair::entity:6da2a5bc-cf88-44b6-b1c5-f9e25ed9aeea, boolean, 01
+chair::entity:d315efed-cb09-4946-a9a9-f3ca9f14a6cf, boolean, 01
+chair::entity:ebe646fe-2128-43a8-afc0-8ce53155c18a, boolean, 01
+homes.cedced19.location, location, 860379617708C2FCE57B05706974636808420E3338017A09C090169C15432EBF017909405080000000000005776F726C6480FF0000000281046E616D65208005776F726C64017809C077CD7B704A0C74
+"kill counter.<player>.kills_session", long, 0000000000000000
+"kill counter.<player>.kills_session_max", long, 0000000000000000
+"kill counter.<player>.kills_total", long, 0000000000000000
+"kill counter.cedced19.kills_session", long, 0000000000000000
+
+homes.cedced19.location, location, 860379617708C35466710570697463680840ACCC98017A094019EE6B08CD85B3017909405240000000000005776F726C6480FF0000000281046E616D65208005776F726C64017809C07002ABF855EA64
