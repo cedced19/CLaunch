@@ -11,7 +11,11 @@ Open `run.bat`
 * `cd /var/www/serveur`
 * `java -Xmx1024M -Xms1024M -jar minecraft_server.jar nogui`
 
-###Else
+##Else
 
 * `cd /var/www/serveur`
 * `java -Xmx1024M -Xms1024M -jar minecraft_server.jar nogui`
+
+##Edit Skript
+
+`cd /var/www/serveur/plugins/Skript/scripts`
