@@ -19,6 +19,3 @@ Modifier le **server.properties**:
 > *rcon.port=25567*  
 > *rcon.password=ichbinpassword*  
 
-## License
-[CC BY-SA](http://creativecommons.org/licenses/by-sa/4.0/)
-
