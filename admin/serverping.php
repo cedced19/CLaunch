@@ -56,8 +56,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Admin Minecraft</title>
-	<link rel="shortcut icon" href="//cedced19.github.io/img/favicon.ico" type="image/x-icon" />
-       	<link rel="icon" href="//cedced19.github.io/img/favicon.ico" type="image/x-icon" />
+	<link href="//cedced19.github.io/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
 
 	<link rel="stylesheet" href="bootstrap.css">
 	<style type="text/css">
@@ -88,7 +87,7 @@
 			<p>
 				<a class="btn btn-large btn-primary" href="//cedced19.github.io">Crée par Cedced19</a>
 				<a class="btn btn-large btn-primary" href="//github.com/cedced19/CLaunch/tree/gh-pages/admin/">Regarder sur GitHub</a>
-				<a class="btn btn-large btn-danger" href="//creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+				<a class="btn btn-large btn-danger" href="//cedced19.github.io/license/">MIT</a>
 			</p>
 		</div>
 
