@@ -75,10 +75,6 @@
 
 			<p>C'est une page d'administration.</p>
 
-                                       <p>
-                                       <a class="btn btn-large btn-success" href="serverping.php">Serveur Ping</a>
-                                       </p>
-
 			<p>
 				<a class="btn btn-large btn-primary" href="//cedced19.github.io">Crée par Cedced19</a>
 				<a class="btn btn-large btn-primary" href="//github.com/cedced19/CLaunch/tree/gh-pages/admin/">Regarder sur GitHub</a>
