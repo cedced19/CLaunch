@@ -1,10 +1,7 @@
 <?php
-             //--------------------------------------------------------------------------
-            //                      CONNEXION AU RCON POUR ENVOYER DES COMMANDES AU SERVEUR
-            //--------------------------------------------------------------------------
             require_once('Rcon.class.php');
 
-            $r = new rcon("127.0.0.1",25567,"ichbinpassword"); // Remplacer l'ip, le port et le mot de passe par les votres
+            $r = new rcon("127.0.0.1",25567,"ichbinpassword"); // Replace by yours
 
             if(isset($_POST['submit'])){
 
@@ -16,16 +13,10 @@
                             }
             }
 
-            //--------------------------------------------------------------------------
-            //              CONNEXION AU QUERY POUR RECEVOIR DES INFORMATIONS DE VOTRE SERVEUR
-            //--------------------------------------------------------------------------
-	// Edit this ->
 	define( 'MQ_SERVER_ADDR', '127.0.0.1' );
 	define( 'MQ_SERVER_PORT', 25566 );
 	define( 'MQ_TIMEOUT', 1 );
-	// Edit this <-
-
-	// Display everything in browser, because some people can't look in logs for errors
+	
 	Error_Reporting( E_ALL | E_STRICT );
 	Ini_Set( 'display_errors', true );
 
@@ -147,7 +138,6 @@
 				</table>
 			</div>
 		</div>
-                            <!-- Envoie de commande -->
                                 <table class="table table-bordered table-striped">
                                         <thead>
                                         <tr>

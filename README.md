@@ -1,11 +1,11 @@
 #CLaunch
 
-Hello ! C'est mon launcher minecraft, il y a aussi la configuration du serveur et la page d'administration.
-Téléchargement ici : [cedced19.github.io/CLaunch/Claunch.jar](http://cedced19.github.io/CLaunch/CLaunch.jar)
+Hello ! It's my Minecraft launcher, there are else the server configuration and a administration page.
+Download here: [cedced19.github.io/CLaunch/Claunch.jar](http://cedced19.github.io/CLaunch/CLaunch.jar)
 
-## Source Java
+## Java sources
 
-Les sources sont à [/source](https://github.com/cedced19/CLaunch/tree/gh-pages/source)
+The sources are here: [/source](https://github.com/cedced19/CLaunch/tree/gh-pages/source)
 
 
 ## Page d'administration en php
@@ -13,13 +13,13 @@ Les sources sont à [/source](https://github.com/cedced19/CLaunch/tree/gh-pages/
 ![](admin/demo.png)
 
 ### Description
-Fonctionne depuis **Minecraft 1.0**
+Work since **Minecraft 1.0**
 
-Modifier le **server.properties**:
+Update the **server.properties**:
 
-> *enable-query=true*
-> *query.port=25566*
-> *enable-rcon=true*
-> *rcon.port=25567*
-> *rcon.password=ichbinpassword*
+> *enable-query=true*  
+> *query.port=25566*  
+> *enable-rcon=true*  
+> *rcon.port=25567*  
+> *rcon.password=ichbinpassword*  
 
